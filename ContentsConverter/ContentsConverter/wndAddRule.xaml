@@ -1,0 +1,22 @@
+﻿<Window x:Class="ContentsConverter.wndAddRule"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="wndAddRule" Height="182" Width="400">
+    <Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Height="80" VerticalAlignment="Top">
+            <StackPanel Orientation="Vertical" >
+                <Label Content="기존 내용" />
+                <TextBox Width="150" Height="40" VerticalContentAlignment="Center" Name="tb_origin"/>
+            </StackPanel>         
+            <Image Name="img" Source="/ContentsConverter;component/Resources/next.png" Width="40" />
+            <StackPanel Orientation="Vertical" Margin="10,0,0,0" Height="80" VerticalAlignment="Top">
+                <Label Content="바꿀 내용" />
+                <TextBox Width="150" Height="40" VerticalContentAlignment="Center" Name="tb_target"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="5">
+            <Button Name="btnSave" Click="btnSave_Click" Width="100" Height="40" Content="저 장" Margin="0,0,10,0"/>
+            <Button Name="btnCancle" Click="btnCancle_Click" Width="100" Height="40" Content="취 소"/>
+        </StackPanel>
+    </Grid>
+</Window>

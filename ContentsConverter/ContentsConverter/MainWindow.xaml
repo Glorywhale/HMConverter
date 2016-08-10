@@ -1,0 +1,45 @@
+﻿<Window x:Class="ContentsConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="HM Converter" Height="600" Width="800" Loaded="Window_Loaded" Closed="Window_Closed" >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" Grid.Column="0">
+            <Label Content="규칙 설정"  HorizontalContentAlignment="Center" Height="50" Margin="0,10,0,0" FontSize="18"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="btn_add" Height="30" Width="70" Content="추가" Click="btn_add_Click" Margin="5"/>
+                <Button Name="btn_delete" Height="30" Width="70" Content="삭제" Click="btn_delete_Click"/>
+            </StackPanel>
+            <DataGrid Name="dgRule" Height="460" Margin="5" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" CanUserAddRows="True">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=origin}" Header="기존내용" Width="1*" />
+                    <DataGridTextColumn Binding="{Binding Path=target}" Header="변경내용" Width="1*" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel></StackPanel>
+        </StackPanel>
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Row="1" Margin="5">
+                <Label Content="기존 내용"/>
+                <TextBox Name="tb_origin_contents" Height="420" AcceptsReturn="True" AcceptsTab="True" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Column ="1" Grid.Row="1" Margin="5">
+                <Label Content="변경 내용"/>
+                <TextBox Name="tb_target_contents" Height="420" AcceptsTab="True" AcceptsReturn="True" />
+            </StackPanel>
+            <Button Grid.Row="0" Grid.Column="0" Content="변경" Height="28" HorizontalAlignment="Left" Margin="22,62,0,0" Name="btn_start" VerticalAlignment="Top" Width="98" Click="btn_start_Click" />
+            <Button Content="클립보드로 복사" Height="28" HorizontalAlignment="Left" Margin="136,62,0,0" Name="btn_copy" VerticalAlignment="Top" Width="130" Grid.Column="1" Click="btn_copy_Click" />
+        </Grid >
+    </Grid>
+</Window>

@@ -1,0 +1,119 @@
+﻿<Controls:MetroWindow 
+    x:Class="ContentsConverter.wndParsing"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wf="clr-namespace:System.Windows.Forms;assembly=System.Windows.Forms"
+        xmlns:my="clr-namespace:ContentsConverter"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="HM Converter" Height="662" Width="800" Loaded="Window_Loaded" Icon="/ContentsConverter;component/icon.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="8*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Visibility="Visible" Grid.Row="0">
+            <TextBox Height="23" Controls:TextBoxHelper.ClearTextButton="True" HorizontalAlignment="Left" Margin="5" Name="tb_url" VerticalAlignment="Top" Width="646" Text="http://www.kidkids.net/" KeyDown="tb_url_KeyDown" />
+            <Button Content="탐 색" Height="23" HorizontalAlignment="Left" Margin="5" Name="btn_browse" VerticalAlignment="Top" Width="75" Click="btn_browse_Click" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Height="70" Margin="0,0,0,0">
+            <Controls:Tile Width="65" Height="65" Click="Tile_Click">
+                <Controls:Tile.Background>
+                    <ImageBrush ImageSource="/ContentsConverter;component/Resources/lion.png"/>
+                </Controls:Tile.Background>
+            </Controls:Tile>
+            <StackPanel Orientation="Vertical" Visibility="Collapsed">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="ID : " Width="40" HorizontalContentAlignment="Right"/>
+                    <TextBox Width="100" Text="kimmh8567" Name="tb_id"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="PW : " Width="40" HorizontalContentAlignment="Right"/>
+                    <PasswordBox Width="100" Password="kimmyung78" Name="tb_password"/>
+                </StackPanel>
+            </StackPanel>
+
+            <Button Name="btn_prev"  Height="35" Width="35"  Click="btn_prev_Click" Margin="10,0,0,0" Style="{DynamicResource MetroCircleButtonStyle}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/ContentsConverter;component/Resources/btn_prev.png" />
+                </Button.Background>
+            </Button>
+            <Button Name="btn_home"  Height="35" Width="35" Click="btn_home_Click" Margin="10,0,0,0" Style="{DynamicResource MetroCircleButtonStyle}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/ContentsConverter;component/Resources/home.png" />
+                </Button.Background>
+            </Button>
+            <Button Name="btn_next"  Height="35" Width="35" Click="btn_next_Click" Margin="10,0,20,0" Style="{DynamicResource MetroCircleButtonStyle}">
+                <Button.Background>
+                    <ImageBrush ImageSource="/ContentsConverter;component/Resources/btn_next.png" />
+                </Button.Background>
+            </Button>
+            <Button Name="btn_web"  Height="65" Width="90" Click="btn_web_Click" >
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/ContentsConverter;component/Resources/website.png" Height="30" Width="35"/>
+                    <Label Content=" Web Browser" />
+                </StackPanel>
+            </Button>
+            <Button Name="btn_contents" Height="65" Width="90" Click="btn_contents_Click" Margin="5,0,5,0">
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/ContentsConverter;component/Resources/contents.png" Height="30" Width="35"/>
+                    <Label Content="내용 보기" />
+                </StackPanel>
+            </Button>
+            <Button Name="btn_half" Height="65" Width="90" Click="btn_half_Click" >
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/ContentsConverter;component/Resources/half.png" Height="30" Width="35"/>
+                    <Label Content="반반 보기" />
+                </StackPanel>
+            </Button>
+            <Button Height="65" Width="90" Name="btn_showConvert" Grid.Column="1" Margin="5,0,0,0" Click="btn_showConvert_Click" >
+                <StackPanel Orientation="Vertical">
+                    <Image Source="/ContentsConverter;component/Resources/setting.png" Height="35" Width="35"/>
+                    <Label Content="기호 설정" />
+                </StackPanel>
+            </Button>
+        </StackPanel>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" Name="cd_web"/>
+                <ColumnDefinition Width="1*" Name="cd_contents"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1" Grid.Row="1" Name="sp_table">                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="50" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Orientation="Vertical" Grid.Column="0">
+                    <Label Content="활동명" Height="35" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" BorderBrush="Black" BorderThickness="1" />
+                    <Label Content="연령/영역" Height="35" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="1" />
+                    <Label Content="활동목표" Height="35" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="1" />
+                    <Label Content="누리과정" Height="35" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="1" />
+                    <Label Content="활동개요" Height="35" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="1" />
+                    <Label Content="활동자료" Height="35" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="1" />
+                    <Label Content="활동방법" Height="35" VerticalContentAlignment="Center" BorderBrush="Black" BorderThickness="1" />
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Grid.Column="1">
+                    <TextBox Name="tb_title" Height="35" VerticalContentAlignment="Center" />
+                    <TextBox Name="tb_age" Height="35" VerticalContentAlignment="Center" />
+                    <TextBox Name="tb_acttarget" Height="35" VerticalContentAlignment="Center" />
+                    <TextBox Name="tb_nuri" Height="35" VerticalContentAlignment="Center" />
+                    <TextBox Name="tb_actintro" Height="35" VerticalContentAlignment="Center" />
+                    <TextBox Name="tb_actMat" Height="35" VerticalContentAlignment="Center" />
+                    <TextBox Height="245" Name="tb_actMethod" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" AutoWordSelection="True" />
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Grid.Column="2">
+                    <Button Name="tb_title_copy"  Content="Copy" Click="tb_copy_Click" Height="35"/>
+                    <Button Name="tb_age_copy" Content="Copy" Click="tb_copy_Click" Height="35"/>
+                    <Button Name="tb_acttarget_copy" Content="Copy" Click="tb_copy_Click" Height="35"/>
+                    <Button Name="tb_nuri_copy" Width="50" Content="Copy" Click="tb_copy_Click" Height="35"/>
+                    <Button Name="tb_actintro_copy" Width="50" Content="Copy" Click="tb_copy_Click" Height="35"/>
+                    <Button Name="tb_actMat_copy" Width="50" Content="Copy" Click="tb_copy_Click" Height="35"/>
+                    <Button Name="tb_actMethod_copy" Width="50" Content="Copy" Click="tb_copy_Click" Height="35"/>
+                </StackPanel>
+            </Grid>
+            <WindowsFormsHost Grid.Row="1" Margin ="5,0,5,0" Name="wf" />
+        </Grid>
+    </Grid>
+</Controls:MetroWindow>
+
